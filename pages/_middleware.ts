@@ -18,7 +18,7 @@ export default function middleware(req: NextRequest) {
     });
 
   // Only for demo purposes – remove this if you want to use your root domain as the landing page
-  if (hostname === "vercel.pub" || hostname === "platforms.vercel.app") {
+  if (hostname === "vercel.pub" || hostname === "vercel-mul2.vercel.app") {
     return NextResponse.redirect("https://demo.vercel.pub");
   }
 
@@ -29,7 +29,7 @@ export default function middleware(req: NextRequest) {
         // in this case, our team slug is "platformize", thus *.platformize.vercel.app works
         hostname
           .replace(`.vercel.pub`, "")
-          .replace(`.platformize.vercel.app`, "")
+          .replace(`.vercel-mul2.vercel.app`, "")
       : hostname.replace(`.localhost:3000`, "");
 
   if (pathname.startsWith(`/_sites`))
@@ -54,7 +54,7 @@ export default function middleware(req: NextRequest) {
 
     if (
       hostname === "localhost:3000" ||
-      hostname === "platformize.vercel.app"
+      hostname === "vercel-mul2.vercel.app"
     ) {
       url.pathname = `/home`;
       return NextResponse.rewrite(url);
